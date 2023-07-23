@@ -144,11 +144,6 @@ function App(props) {
             "lolll r we back to shrek already? i had no idea that this song was from shrek so i remember being rly surprised when it popped up during our shrek marathon...ty for putting up with my ocd watching habits 🥹...speaking of ocd...i was gonna add Fearless Hero to the playlist too for ur boi, but i wanted an even 50 songs and one of them had to go 🥺",
         ],
         [
-            "https://open.spotify.com/track/1YlulsUKDduOmC7WxvXYPW?si=07dd64e695464739",
-            "Painkiller",
-            "im usually rly good at managing my feelings (understanding and compartmentalizing them), but lately my ugly feelings dont make much sense...and ur hugs r the only thing that make me feel better...so pls save some for me when i get back 👉👈, bc i can already tell imma need a lot of them to make up for how much missing u is gonna hurt 🥺",
-        ],
-        [
             "https://open.spotify.com/track/5DJWH2fAY7jwFe9AU2WEsb?si=fed7ccf4cf2a4ef8",
             "Stay In It",
             "it's jonathan's fav band so i gotta add it right? lolll but srsly, i'm so grateful that u were able to go bc u made that concert so much more fun and comfortable despite my concert curse 🥹",
@@ -254,11 +249,6 @@ function App(props) {
             "this song literally makes me question my aversion to lotto tickets...if only plane tickets weren't so expensive 😭, this couldve been us",
         ],
         [
-            "https://open.spotify.com/track/55p8TQ1ggGYOO1gLQrC52D?si=0baf9724d7f34b7e",
-            "Favorite T-Shirt",
-            "😭...this song always makes me wanna cuddle and listen to ur heartbeat...also where's ur fav t-shirt 👉👈",
-        ],
-        [
             "https://open.spotify.com/track/161DnLWsx1i3u1JT05lzqU?si=7bfdf4a8811b4a92",
             "Talking to the Moon",
             "pls fix spotify...y is it feeding me sad songs when we r gonna be apart for two weeks 😭",
@@ -272,6 +262,11 @@ function App(props) {
             "https://open.spotify.com/track/2JRLoT6z48Pfihyj1s1u77?si=ab2246f8d77e4429",
             "Day Dreaming",
             "im telling u...im usually a good driver but someone keeps on making me day dream 👀, jk jk im just rly bad at paying attention 😭...someone got me wishin for the first line tho 👉👈, i mean whaaaa-",
+        ],
+        [
+            "https://open.spotify.com/track/55p8TQ1ggGYOO1gLQrC52D?si=0baf9724d7f34b7e",
+            "Favorite T-Shirt",
+            "😭...this song always makes me wanna cuddle and listen to ur heartbeat...also where's ur fav t-shirt 👉👈",
         ],
         [
             "https://open.spotify.com/track/3QGsuHI8jO1Rx4JWLUh9jd?si=77c6681353914ce2",
@@ -297,6 +292,11 @@ function App(props) {
             "https://open.spotify.com/track/61OtYav1fiUCr73JwZD2Sb?si=b598f25035384251",
             "It's You",
             "when my friends talked abt their relationship probs, i always said this one phrase 'right person, right time', by which i meant that u can find ur person but the timing may not be right...and this song reminded me of that...but isn't it crazy that we found each other when we did?...🎶ur the right time at the right moment🎶",
+        ],
+        [
+            "https://open.spotify.com/track/1YlulsUKDduOmC7WxvXYPW?si=07dd64e695464739",
+            "Painkiller",
+            "im usually rly good at managing my feelings (understanding and compartmentalizing them), but lately my ugly feelings dont make much sense...and ur hugs r the only thing that make me feel better...so pls save some for me when i get back 👉👈, bc i can already tell imma need a lot of them to make up for how much missing u is gonna hurt 🥺",
         ],
         [
             "https://open.spotify.com/track/5qDfGiZz9Soxb9Xn2jQ8hk?si=e30fe32e15dd4557",
