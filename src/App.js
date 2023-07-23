@@ -34,7 +34,12 @@ function App(props) {
         "aight so, ur final monthiversery gift this month...i may or may not have made u a mixtape 👀",
         <br />,
         <br />,
-        "jk jk, it's just a spotify playlist of a bunch of songs that made me think of u this month 👉👈...ik we might not always be able to talk all the time, so im hoping this playlist helps a bit w de ugly feelings 😫",
+        "jk, it's just a spotify playlist of a bunch of songs that made me think of u this month 👉👈...ik we might not always be able to talk all the time, so im hoping this playlist helps a bit w de ugly feelings 😫",
+        <br />,
+        <br />,
+        <a href="https://open.spotify.com/playlist/34MdMEKDP35qiYiz0ZNT31?si=1a7a640adc2640df&pt=8c9f89f0dd1d7429a5b2a32ef6b2a66b">
+            idkiykilyt
+        </a>,
         <br />,
         <br />,
         <i>
@@ -44,11 +49,6 @@ function App(props) {
             quality...tried to get u a light painting and the seller leaves
             etsy...tried to give u a spotify playlist and ur premium ran out 💀
         </i>,
-        <br />,
-        <br />,
-        <a href="https://open.spotify.com/playlist/34MdMEKDP35qiYiz0ZNT31?si=1a7a640adc2640df&pt=8c9f89f0dd1d7429a5b2a32ef6b2a66b">
-            idkiykilyt
-        </a>,
         <br />,
     ];
 
