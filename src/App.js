@@ -25,6 +25,7 @@ function App(props) {
             update: i was gonna send this to u when i was on the plane but...i
             finished this site like an hour before u sent me the playlist...so
             ig we have the same brain haha bc the gift is a playlist too 🤣
+            (spoilers sry)
         </i>,
         <br />,
         <br />,
@@ -35,7 +36,10 @@ function App(props) {
 
     const letter = [
         <br />,
-        "so uhmm hi josh (hopefully?)",
+        "dayum u unlocked it, maybe u r josh haha",
+        <br />,
+        <br />,
+        "hi josh (hopefully?)",
         <br />,
         <br />,
         "now that we’ve reached the three month mark, i must confess smth…u scare the crap out of me. ok, maybe not u per say, more like the effect u have on me.",
@@ -45,7 +49,6 @@ function App(props) {
         <br />,
         <br />,
         "every moment im with u, no matter what we do, i feel so safe and content. every moment i’m not with u, i’m remembering when…we sat on the ropes in the playground…when we drive around with my hand on ur neck and ur hand on my thigh…when we heelyed around the mall without our togo boxes…when u spoke in ur sleep while we were watching tiktok’s…when u got attacked by a bug in ur own backyard…when we captured a lil invader w our buddy calvin klein…when u made me hook up breath to jacob’s tv…when we danced at family crest…when we walked thru the drive thru…when we camped in the back of my car…when we had our first ‘road trip’ and watched the sun set when we were coming back from the hp watch party (it did not fulfill my road trip craving tho ngl)…when i laughed and cried into u when we played pico park w michelle and my fam…when we nap/cuddle and i can feel ur heartbeat…when we hug goodbye and its the best and worst feeling in the world…",
-        <br />,
         <br />,
         <br />,
         "so yeh, i’m scared of u, bc it’s so easy to be w u…but its so hard not to just be ‘someone in a relationship’ bc all i think abt is u so all i want to talk abt is u (like legit…i go silent when i hang out w my friends sometimes bc all i have to contribute to the convos r stories abt u…and i dont wanna rub it in their faces haha)",
