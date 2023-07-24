@@ -18,7 +18,14 @@ function App(props) {
         "hi josh,",
         <br />,
         <br />,
-        "happy (belated) monthiversery! ik we already exchanged gifts and celebrated, but i'll be away for the next two weeks, so i wanted to give u one more thing (jic u miss me, jk ill prob listen to it bc imma be missing u 😩)",
+        "happy monthiversery! ik we already exchanged gifts and celebrated, but i'll be away for the next two weeks, so i wanted to give u one more thing (jic u miss me, jk ill prob listen to it bc imma be missing u 😩)",
+        <br />,
+        <br />,
+        <i>
+            update: i was gonna send this to u when i was on the plane but...i
+            finished this site like an hour before u sent me the playlist...so
+            ig we have the same brain haha bc the gift is a playlist too 🤣
+        </i>,
         <br />,
         <br />,
         "thing is, this is a public site...so i just wanna make sure it's rly u :)...",
@@ -28,13 +35,23 @@ function App(props) {
 
     const letter = [
         <br />,
-        "dayum he figured it out 🙃, maybe u r josh :)",
+        "so uhmm hi josh (hopefully?)",
         <br />,
         <br />,
-        "aight so, ur final monthiversery gift this month...i may or may not have made u a mixtape 👀",
+        "now that we’ve reached the three month mark, i must confess smth…u scare the crap out of me. ok, maybe not u per say, more like the effect u have on me.",
         <br />,
         <br />,
-        "jk, it's just a spotify playlist of a bunch of songs that made me think of u this month 👉👈...ik we might not always be able to talk all the time, so im hoping this playlist helps a bit w de ugly feelings 😫",
+        "i grew up thinking it was so odd that some ppl’s only trait was that they were in a relationship. how is it that their whole world seems to revolve around someone else? that they can't do anything without their partner? that they can't talk about anything but their partner? but the more and more time we spend together, the more and more things we learn about each other, the more and more i understand those ppl…bc i can literally feel myself falling into u (i never understood the phrase “falling in love” but falling rly does feel like the only appropriate word)",
+        <br />,
+        <br />,
+        "every moment im with u, no matter what we do, i feel so safe and content. every moment i’m not with u, i’m remembering when…we sat on the ropes in the playground…when we drive around with my hand on ur neck and ur hand on my thigh…when we heelyed around the mall without our togo boxes…when u spoke in ur sleep while we were watching tiktok’s…when u got attacked by a bug in ur own backyard…when we captured a lil invader w our buddy calvin klein…when u made me hook up breath to jacob’s tv…when we danced at family crest…when we walked thru the drive thru…when we camped in the back of my car…when we had our first ‘road trip’ and watched the sun set when we were coming back from the hp watch party (it did not fulfill my road trip craving tho ngl)…when i laughed and cried into u when we played pico park w michelle and my fam…when we nap/cuddle and i can feel ur heartbeat…when we hug goodbye and its the best and worst feeling in the world…",
+        <br />,
+        <br />,
+        <br />,
+        "so yeh, i’m scared of u, bc it’s so easy to be w u…but its so hard not to just be ‘someone in a relationship’ bc all i think abt is u so all i want to talk abt is u (like legit…i go silent when i hang out w my friends sometimes bc all i have to contribute to the convos r stories abt u…and i dont wanna rub it in their faces haha)",
+        <br />,
+        <br />,
+        "but i digress 🙃, here is ur final monthiversery gift this month...a spotify playlist of a bunch of songs that made me think of u this month 👉👈...ik we might not always be able to talk all the time, so im hoping this playlist helps a bit w de ugly feelings 😫",
         <br />,
         <br />,
         <a href="https://open.spotify.com/playlist/34MdMEKDP35qiYiz0ZNT31?si=1a7a640adc2640df&pt=8c9f89f0dd1d7429a5b2a32ef6b2a66b">
