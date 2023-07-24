@@ -39,7 +39,7 @@ function App(props) {
         "dayum u unlocked it, maybe u r josh haha",
         <br />,
         <br />,
-        "hi josh (hopefully?)",
+        "hi josh (hopefully?),",
         <br />,
         <br />,
         "now that we’ve reached the three month mark, i must confess smth…u scare the crap out of me. ok, maybe not u per say, more like the effect u have on me.",
