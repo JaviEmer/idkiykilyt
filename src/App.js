@@ -1,9 +1,17 @@
 import "./App.css";
 import { useState } from "react";
 import { ReactTerminal } from "react-terminal";
+import hpmovies from "./hpmovies.jpg";
+import flightupdate from "./flightupdate.jpeg";
+import gacchas from "./gacchas.jpg";
+import giftgiving from "./giftgiving.jpg";
+import heelys from "./heelys.JPG";
+import climbingshow from "./climbingshow.jpg";
 
 function App(props) {
     const [locked, setLocked] = useState(true);
+    const [playlist, setPlaylist] = useState(false);
+    const [airplane, setAirplane] = useState(false);
 
     const theme = {
         "dark-blue": {
@@ -34,10 +42,7 @@ function App(props) {
         <br />,
     ];
 
-    const letter = [
-        <br />,
-        "dayum u unlocked it, maybe u r josh haha",
-        <br />,
+    const playlistLetter = [
         <br />,
         "hi josh (hopefully?),",
         <br />,
@@ -72,6 +77,66 @@ function App(props) {
             quality...tried to get u a light painting and the seller leaves
             etsy...tried to give u a spotify playlist and ur premium ran out 💀
         </i>,
+        <br />,
+    ];
+
+    const airplaneLetter = [
+        <br />,
+        "hey josh",
+        <br />,
+        <br />,
+        "i haven’t even arrived at aus yet and i already miss u 😭 i usually rly like plane rides bc they r an opportunity to disconnect from the world without feeling guilty….but this plane ride? i constantly find myself reaching for my phone to txt u…but i can’t…so here i am…yet again writing a letter bc i miss u 🥹",
+        <br />,
+        <br />,
+        "since i can’t txt u…i’ll just put all my random thoughts here for now 😂 maybe i’ll put them on the website or smth :)",
+        <br />,
+        <br />,
+        "we met up w my cousin and aunt bc we on the same flight just as u were falling asleep and i was telling them the story of how we met/got together (badly bc i still can’t keep the timeline straight 💀) and my aunt asked for a pic and amber went Oo i have some…bruhhh we got paparazzi’d",
+        <br />,
+        <img src={heelys} alt="heelys" />,
+        <br />,
+        <br />,
+        "omggg my dad got seated a little bit away from us (prob cause i made my mom check us in kinda late) and i’m pretty sure he’s an introvert but man’s just making friends and convos left and right 😂😂",
+        <br />,
+        <br />,
+        "mannn the middle armrest thingy goes up 😭😭 i wish u were here so we could take advantage of that and maybe actually get comfortable sleep 🥲 (i can’t lean on ambers shoulder…she’s literally facing a new direction every time i look over 😂)",
+        <br />,
+        <br />,
+        "guess what amber and i saw on the tv thingy? ALL THR HARRY POTTER MOVIES 👀 update: i told amber to watch the first two while i played zelda so we could watch the rest together…but we both fell asleep and she couldn’t watch anymore bc there were no captions 💀",
+        <br />,
+        <img src={hpmovies} alt="hpmovies" />,
+        <br />,
+        <br />,
+        "guess what i didn’t see on the tv thingy? tetris 😭 not even solitaire 😫 good thing i brought cards on the plane 👀 (totally didn’t almost drop them…or it 🥹….when did u even do that 😭😭) update: amber tried out the coloring book and i found another one..bruh how many r there???",
+        <br />,
+        <br />,
+        "dayummm ur even in my dreams 😭😭… we were swimming around my pool being therapists or smth to some old ass friends of mine from hs? i don’t rly remember tbh…🙃",
+        <br />,
+        <br />,
+        "i just got woken up again by a notif that ur class is abt to end…i’ve still got like 3.5 hours left on the flight tho…i hope ur test went well 🥹…or rather ik ur test went well, but i hope it didn’t stress u out too much 🥺 sry i wish i had the foresight to send u msgs beforehand but im dumb and didn’t rly think abt the future 🥲",
+        <br />,
+        <img src={flightupdate} alt="flightupdate" />,
+        <br />,
+        <br />,
+        "dudeeee i’m so sadddd…i just found a rock climbing reality show series…but there’s only 1.5 hrs left on this flight 😭",
+        <br />,
+        <img src={climbingshow} alt="climbingshow" />,
+        <br />,
+        <br />,
+        "lolll i’m not on the plane anymore but i still can’t text u without wifi…but lookkkk i found gaccha machines 😂😂",
+        <br />,
+        <img src={gacchas} alt="gacchas" />,
+        <br />,
+        <br />,
+        "(same plaza/mall thing)…loooook it’s u 🙃",
+        <br />,
+        <img src={giftgiving} alt="giftgiving" />,
+        <br />,
+        <br />,
+        "aight i just put in my new sim card so airplane mode is going off and imma just text u whenever now 😏 but if u read this…i rly rly rly miss u (no, rly) 👉👈 and ilysm that my adhd object permanence tendencies aren’t kicking in to save my butt 😔 so as much as i love australia and seeing my fam…i’m just looking forward to the end of these two weeks when i get to see/hug u again 🥹",
+        <br />,
+        <br />,
+        "- ur not so local goldfish 💙💙",
         <br />,
     ];
 
@@ -328,6 +393,18 @@ function App(props) {
         ],
     ];
 
+    function getSong(num) {
+        return [
+            <br />,
+            <a href={songs[num][0]}>
+                {" "}
+                {num + 1}. {songs[num][1]}
+            </a>,
+            ": " + songs[num][2],
+            <br />,
+        ];
+    }
+
     const lockedCmds = {
         michelle: "poof poof goof goof wrongey hehe",
         42523: [
@@ -340,23 +417,33 @@ function App(props) {
         ],
         61523: () => {
             setLocked(false);
-            return letter;
+            return [<br />, "dayum u unlocked it, maybe u r josh haha", <br />];
         },
     };
 
-    function getSong(num) {
-        return [
-            <a href={songs[num][0]}>
-                {" "}
-                {num + 1}. {songs[num][1]}
-            </a>,
-            ": " + songs[num][2],
-            <br />,
-            <br />,
-        ];
-    }
-
     const unlockedCmds = {
+        0: () => {
+            setPlaylist(true);
+            return playlistLetter;
+        },
+        1: () => {
+            setAirplane(true);
+            return airplaneLetter;
+        },
+    };
+
+    const airplaneCmds = {
+        exit: () => {
+            setAirplane(false);
+            return <br />;
+        },
+    };
+
+    const playListCmds = {
+        exit: () => {
+            setPlaylist(false);
+            return <br />;
+        },
         all: () => {
             let str = [];
             for (let i = 0; i < 50; i++) {
@@ -531,11 +618,36 @@ function App(props) {
                 theme="dark-blue"
             />
         );
+    else if (airplane)
+        return (
+            <ReactTerminal
+                welcomeMessage={introMsg}
+                errorMessage={["mmm...sry dk what u mean loll", <br />]}
+                prompt="[pls enter 'exit' to exit] >>>"
+                showControlBar={false}
+                commands={airplaneCmds}
+                themes={theme}
+                theme="dark-blue"
+            />
+        );
+    else if (playlist)
+        return (
+            <ReactTerminal
+                welcomeMessage={introMsg}
+                errorMessage={["mmm...sry dk what u mean loll", <br />]}
+                prompt="[pls enter a song #1-50 or just type 'all' or 'exit'] >>>"
+                showControlBar={false}
+                commands={playListCmds}
+                themes={theme}
+                theme="dark-blue"
+            />
+        );
     return (
+        //unlocked
         <ReactTerminal
             welcomeMessage={introMsg}
             errorMessage={["mmm...sry dk what u mean loll", <br />]}
-            prompt="[pls enter a song #1-50 or just type 'all'] >>>"
+            prompt="[pls enter a 0 for the playlist or 1 for airplane mode] >>>"
             showControlBar={false}
             commands={unlockedCmds}
             themes={theme}
