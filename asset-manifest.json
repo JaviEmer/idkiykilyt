@@ -1,15 +1,21 @@
 {
   "files": {
-    "main.css": "/idkiykilyt/static/css/main.15d5d47f.css",
-    "main.js": "/idkiykilyt/static/js/main.d24a1cb5.js",
+    "main.css": "/idkiykilyt/static/css/main.894e9afb.css",
+    "main.js": "/idkiykilyt/static/js/main.0701fa8d.js",
     "static/js/787.a5541693.chunk.js": "/idkiykilyt/static/js/787.a5541693.chunk.js",
+    "static/media/giftgiving.jpg": "/idkiykilyt/static/media/giftgiving.659d635f06e80685798f.jpg",
+    "static/media/gacchas.jpg": "/idkiykilyt/static/media/gacchas.b3ea2a0a76bb7952ab56.jpg",
+    "static/media/hpmovies.jpg": "/idkiykilyt/static/media/hpmovies.3d0975605c27459d6c54.jpg",
+    "static/media/climbingshow.jpg": "/idkiykilyt/static/media/climbingshow.29207480f228d9fc47f0.jpg",
+    "static/media/flightupdate.jpeg": "/idkiykilyt/static/media/flightupdate.01c60573c52764713ef5.jpeg",
+    "static/media/heelys.JPG": "/idkiykilyt/static/media/heelys.2b22cb3a53e3bf317ec2.JPG",
     "index.html": "/idkiykilyt/index.html",
-    "main.15d5d47f.css.map": "/idkiykilyt/static/css/main.15d5d47f.css.map",
-    "main.d24a1cb5.js.map": "/idkiykilyt/static/js/main.d24a1cb5.js.map",
+    "main.894e9afb.css.map": "/idkiykilyt/static/css/main.894e9afb.css.map",
+    "main.0701fa8d.js.map": "/idkiykilyt/static/js/main.0701fa8d.js.map",
     "787.a5541693.chunk.js.map": "/idkiykilyt/static/js/787.a5541693.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.15d5d47f.css",
-    "static/js/main.d24a1cb5.js"
+    "static/css/main.894e9afb.css",
+    "static/js/main.0701fa8d.js"
   ]
 }
