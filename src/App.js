@@ -12,6 +12,11 @@ function App(props) {
     const [locked, setLocked] = useState(true);
     const [playlist, setPlaylist] = useState(false);
     const [airplane, setAirplane] = useState(false);
+    const [lockedDND, setLockedDND] = useState(false);
+    const [lookDND, setLookDND] = useState(false);
+    const [look2DND, setLook2DND] = useState(false);
+    const [pickDND, setPickDND] = useState(false);
+    const [dice, setDice] = useState(Math.floor(Math.random() * 20) + 1);
 
     const theme = {
         "dark-blue": {
@@ -38,6 +43,131 @@ function App(props) {
         <br />,
         <br />,
         "thing is, this is a public site...so i just wanna make sure it's rly u :)...",
+        <br />,
+        <br />,
+    ];
+
+    const unlockedDNDLetter = [
+        <br />,
+        <i>Inside the box, there is a single sheet of paper. It reads...</i>,
+        <br />,
+        <br />,
+        "I seem to have misplaced 6 of my cards. These were the last memories I had with them. Perhaps if I retrace my steps, I can find them again!",
+        <br />,
+        "1. I was playing Zelda on my monitor when it suddenly disconnected.",
+        <br />,
+        "2. I was budgeting, but my brain couldn't do mental math anymore.",
+        <br />,
+        "3. I noticed someone looking at me through the window; or rather, they were staring in my direction, but the monitor was in the way.",
+        <br />,
+        "4. I was working at my easel, when I suddenly dropped my medium and had to get more.",
+        <br />,
+        "5. I was trying to clean my desktop, but the mat was in the way.",
+        <br />,
+        "6. I was recalling memories from my first monthiversery.",
+        <br />,
+        <br />,
+    ];
+
+    const lockedDNDLetter = [
+        <br />,
+        <i>
+            You walk into the den and immediately notice a locked box with a
+            numbered padlock on your desk. Do you...
+        </i>,
+        <br />,
+        <br />,
+        <i>1. Look around for clues</i>,
+        <br />,
+        <i>2. Attempt to pick the lock</i>,
+        <br />,
+        <br />,
+    ];
+
+    const lookDNDLetter = [
+        <br />,
+        <i>
+            You roll for perception...you need a 15 to notice anything useful.
+        </i>,
+        <br />,
+        <br />,
+    ];
+
+    const lookUnlockedDNDLetter = [
+        <br />,
+        <i>Congrats! You rolled a {dice}!</i>,
+        <br />,
+        <br />,
+        <i>
+            You look around and notice a stack of cards labeled "JaEm" next to
+            the box. They seem to be numbered, but are out of order. You wonder
+            if sorting them out will somehow relate to the passcode.
+        </i>,
+        <br />,
+        <br />,
+    ];
+
+    const lookFailedDNDLetter = [
+        <br />,
+        <i>
+            Welp! You rolled a {dice}...you try taking a look around but nothing
+            else pops out to you.
+        </i>,
+        <br />,
+        <br />,
+    ];
+
+    const look2UnlockedDNDLetter = [
+        <br />,
+        <i>Congrats! You rolled a {dice}!</i>,
+        <br />,
+        <br />,
+        <i>
+            You notice that some of the cards are missing. You wonder if they
+            are in the locked box...could the lock's password really just be the
+            number of missing cards?
+        </i>,
+        <br />,
+        <br />,
+    ];
+
+    const lookPwdDNDLetter = [
+        <br />,
+        <i>You hear the lock click and the box flings open.</i>,
+        <br />,
+        ...unlockedDNDLetter,
+    ];
+
+    const pickDNDLetter = [
+        <br />,
+        <i>
+            You roll for dexterity...you need a 20 to pick this advanced lock.
+        </i>,
+        <br />,
+        <br />,
+    ];
+
+    const pickUnlockedDNDLetter = [
+        <br />,
+        <i>Congrats! You rolled a {dice}!</i>,
+        <br />,
+        <br />,
+        <i>
+            You spend a bit of time trying to pick the lock, but your tools
+            prove no match for the advanced technology. Frustrated, you slam
+            your fist into the box and to your surprise, it opens. It seems you
+            accidentally hit the number 6 and it opened...not a very secure
+            passcode, you think.
+        </i>,
+        <br />,
+        ...unlockedDNDLetter,
+    ];
+    const pickFailedDNDLetter = [
+        <br />,
+        <i>
+            Welp! You rolled a {dice}...you stab your tools aimlessly at the
+            lock to no avail.
+        </i>,
         <br />,
         <br />,
     ];
@@ -430,11 +560,71 @@ function App(props) {
             setAirplane(true);
             return airplaneLetter;
         },
+        2: () => {
+            setLockedDND(true);
+            return lockedDNDLetter;
+        },
     };
 
     const airplaneCmds = {
         exit: () => {
             setAirplane(false);
+            return <br />;
+        },
+    };
+
+    const lockedDNDCmds = {
+        1: () => {
+            setLookDND(true);
+            return lookDNDLetter;
+        },
+        2: () => {
+            setPickDND(true);
+            return pickDNDLetter;
+        },
+        exit: () => {
+            setLockedDND(false);
+            setPickDND(false);
+            setLookDND(false);
+            return <br />;
+        },
+    };
+
+    const lookDNDCmds = {
+        roll: () => {
+            setDice(Math.floor(Math.random() * 20) + 1);
+            if (dice >= 15) {
+                if (!look2DND) {
+                    setLook2DND(true);
+                    return lookUnlockedDNDLetter;
+                } else {
+                    return look2UnlockedDNDLetter;
+                }
+            } else {
+                return lookFailedDNDLetter;
+            }
+        },
+        6: () => {
+            setLookDND(false);
+            return lookPwdDNDLetter;
+        },
+        exit: () => {
+            setLookDND(false);
+            return <br />;
+        },
+    };
+
+    const pickDNDCmds = {
+        roll: () => {
+            setDice(Math.floor(Math.random() * 20) + 1);
+            if (dice == 20) {
+                return pickUnlockedDNDLetter;
+            } else {
+                return pickFailedDNDLetter;
+            }
+        },
+        exit: () => {
+            setPickDND(false);
             return <br />;
         },
     };
@@ -642,12 +832,51 @@ function App(props) {
                 theme="dark-blue"
             />
         );
+    else if (pickDND)
+        return (
+            <ReactTerminal
+                welcomeMessage={introMsg}
+                errorMessage={["mmm...sry dk what u mean loll", <br />]}
+                prompt="[pls enter 'roll' to roll for dexterity or 'exit' to exit] >>>"
+                showControlBar={false}
+                commands={pickDNDCmds}
+                themes={theme}
+                theme="dark-blue"
+            />
+        );
+    else if (lookDND)
+        return (
+            <ReactTerminal
+                welcomeMessage={introMsg}
+                errorMessage={[
+                    "mmm...that passcode didn't work, maybe roll again to try looking for more clues?",
+                    <br />,
+                ]}
+                prompt="[pls enter 'roll' to roll for perception, a numbered passcode, or 'exit' to exit] >>>"
+                showControlBar={false}
+                commands={lookDNDCmds}
+                themes={theme}
+                theme="dark-blue"
+            />
+        );
+    else if (lockedDND)
+        return (
+            <ReactTerminal
+                welcomeMessage={introMsg}
+                errorMessage={["mmm...sry dk what u mean loll", <br />]}
+                prompt="[pls enter a 1/2 to roll for an action or 'exit' to exit] >>>"
+                showControlBar={false}
+                commands={lockedDNDCmds}
+                themes={theme}
+                theme="dark-blue"
+            />
+        );
     return (
         //unlocked
         <ReactTerminal
             welcomeMessage={introMsg}
             errorMessage={["mmm...sry dk what u mean loll", <br />]}
-            prompt="[pls enter a 0 for the playlist or 1 for airplane mode] >>>"
+            prompt="[pls enter a 0 for the playlist, 1 for airplane mode, or 2 for dnd] >>>"
             showControlBar={false}
             commands={unlockedCmds}
             themes={theme}
