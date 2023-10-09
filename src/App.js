@@ -17,6 +17,7 @@ function App(props) {
     const [look2DND, setLook2DND] = useState(false);
     const [pickDND, setPickDND] = useState(false);
     const [dice, setDice] = useState(Math.floor(Math.random() * 20) + 1);
+    const [hug, setHug] = useState(0);
 
     const theme = {
         "dark-blue": {
@@ -54,18 +55,28 @@ function App(props) {
         <br />,
         "I seem to have misplaced 6 of my cards. These were the last memories I had with them. Perhaps if I retrace my steps, I can find them again!",
         <br />,
-        "1. I was playing Zelda on my monitor when it suddenly disconnected.",
+        <br />,
+        "1. I was recalling memories from my first monthiversery.",
         <br />,
         "2. I was budgeting, but my brain couldn't do mental math anymore.",
         <br />,
-        "3. I noticed someone looking at me through the window; or rather, they were staring in my direction, but the monitor was in the way.",
+        "3. I was checking to see if I could connect my speakers to my monitor.",
         <br />,
         "4. I was working at my easel, when I suddenly dropped my medium and had to get more.",
         <br />,
         "5. I was trying to clean my desktop, but the mat was in the way.",
         <br />,
-        "6. I was recalling memories from my first monthiversery.",
+        "6. I was tired of taking care of my grandpa's farm on a tiny screen.",
         <br />,
+        <br />,
+        <i>
+            Congrats! You figured it out 🙃
+            {(hug - 1) <= 0
+                ? ""
+                : (hug - 1) == 1
+                ? ", but now you owe me a hug 😏"
+                : ", but now you owe me " + (hug - 1) + " hugs 😏"}
+        </i>,
         <br />,
     ];
 
@@ -81,7 +92,6 @@ function App(props) {
         <br />,
         <i>2. Attempt to pick the lock</i>,
         <br />,
-        <br />,
     ];
 
     const lookDNDLetter = [
@@ -89,7 +99,6 @@ function App(props) {
         <i>
             You roll for perception...you need a 15 to notice anything useful.
         </i>,
-        <br />,
         <br />,
     ];
 
@@ -103,7 +112,7 @@ function App(props) {
             the box. They seem to be numbered, but are out of order. You wonder
             if sorting them out will somehow relate to the passcode.
         </i>,
-        <br />,
+        <i>{hug > 0 ? [<br />, <br />, "Current Hug Debt: " + hug] : ""}</i>,
         <br />,
     ];
 
@@ -114,6 +123,13 @@ function App(props) {
             else pops out to you.
         </i>,
         <br />,
+        <br />,
+        <i>
+            You can try again...for a price 👀{" "}
+            {hug > 0
+                ? [<br />, <br />, "Current Hug Debt: " + hug]
+                : "(like a hug?)"}
+        </i>,
         <br />,
     ];
 
@@ -127,7 +143,7 @@ function App(props) {
             are in the locked box...could the lock's password really just be the
             number of missing cards?
         </i>,
-        <br />,
+        <i>{hug > 0 ? [<br />, <br />, "Current Hug Debt: " + hug] : ""}</i>,
         <br />,
     ];
 
@@ -143,7 +159,6 @@ function App(props) {
         <i>
             You roll for dexterity...you need a 20 to pick this advanced lock.
         </i>,
-        <br />,
         <br />,
     ];
 
@@ -169,6 +184,13 @@ function App(props) {
             lock to no avail.
         </i>,
         <br />,
+        <br />,
+        <i>
+            You can try again...for a price 👀{" "}
+            {hug > 0
+                ? [<br />, <br />, "Current Hug Debt: " + hug]
+                : "(like a hug?)"}
+        </i>,
         <br />,
     ];
 
@@ -593,6 +615,7 @@ function App(props) {
     const lookDNDCmds = {
         roll: () => {
             setDice(Math.floor(Math.random() * 20) + 1);
+            setHug(hug + 1);
             if (dice >= 15) {
                 if (!look2DND) {
                     setLook2DND(true);
@@ -606,6 +629,7 @@ function App(props) {
         },
         6: () => {
             setLookDND(false);
+            setLockedDND(false);
             return lookPwdDNDLetter;
         },
         exit: () => {
@@ -617,7 +641,9 @@ function App(props) {
     const pickDNDCmds = {
         roll: () => {
             setDice(Math.floor(Math.random() * 20) + 1);
+            setHug(hug + 1);
             if (dice == 20) {
+                setLockedDND(false);
                 return pickUnlockedDNDLetter;
             } else {
                 return pickFailedDNDLetter;
@@ -798,6 +824,7 @@ function App(props) {
             <ReactTerminal
                 welcomeMessage={introMsg}
                 errorMessage={[
+                    <br />,
                     "nice try haha...but maybe checking my last letter will help 👀",
                     <br />,
                 ]}
@@ -812,7 +839,7 @@ function App(props) {
         return (
             <ReactTerminal
                 welcomeMessage={introMsg}
-                errorMessage={["mmm...sry dk what u mean loll", <br />]}
+                errorMessage={[<br />, "mmm...sry dk what u mean loll", <br />]}
                 prompt="[pls enter 'exit' to exit] >>>"
                 showControlBar={false}
                 commands={airplaneCmds}
@@ -824,7 +851,7 @@ function App(props) {
         return (
             <ReactTerminal
                 welcomeMessage={introMsg}
-                errorMessage={["mmm...sry dk what u mean loll", <br />]}
+                errorMessage={[<br />, "mmm...sry dk what u mean loll", <br />]}
                 prompt="[pls enter a song #1-50 or just type 'all' or 'exit'] >>>"
                 showControlBar={false}
                 commands={playListCmds}
@@ -849,7 +876,8 @@ function App(props) {
             <ReactTerminal
                 welcomeMessage={introMsg}
                 errorMessage={[
-                    "mmm...that passcode didn't work, maybe roll again to try looking for more clues?",
+                    <br />,
+                    "mmm...that passcode didn't work, maybe roll again to try looking for more clues? (for a price of course 👀)",
                     <br />,
                 ]}
                 prompt="[pls enter 'roll' to roll for perception, a numbered passcode, or 'exit' to exit] >>>"
@@ -863,7 +891,7 @@ function App(props) {
         return (
             <ReactTerminal
                 welcomeMessage={introMsg}
-                errorMessage={["mmm...sry dk what u mean loll", <br />]}
+                errorMessage={[<br />, "mmm...sry dk what u mean loll", <br />]}
                 prompt="[pls enter a 1/2 to roll for an action or 'exit' to exit] >>>"
                 showControlBar={false}
                 commands={lockedDNDCmds}
@@ -875,7 +903,7 @@ function App(props) {
         //unlocked
         <ReactTerminal
             welcomeMessage={introMsg}
-            errorMessage={["mmm...sry dk what u mean loll", <br />]}
+            errorMessage={[<br />, "mmm...sry dk what u mean loll", <br />]}
             prompt="[pls enter a 0 for the playlist, 1 for airplane mode, or 2 for dnd] >>>"
             showControlBar={false}
             commands={unlockedCmds}
