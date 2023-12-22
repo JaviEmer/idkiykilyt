@@ -18,6 +18,7 @@ function App(props) {
     const [pickDND, setPickDND] = useState(false);
     const [dice, setDice] = useState(Math.floor(Math.random() * 20) + 1);
     const [hug, setHug] = useState(0);
+    const [gacha, setGacha] = useState(false);
 
     const theme = {
         "dark-blue": {
@@ -71,9 +72,9 @@ function App(props) {
         <br />,
         <i>
             Congrats! You figured it out 🙃
-            {(hug - 1) <= 0
+            {hug - 1 <= 0
                 ? ""
-                : (hug - 1) == 1
+                : hug - 1 == 1
                 ? ", but now you owe me a hug 😏"
                 : ", but now you owe me " + (hug - 1) + " hugs 😏"}
         </i>,
@@ -177,6 +178,7 @@ function App(props) {
         <br />,
         ...unlockedDNDLetter,
     ];
+
     const pickFailedDNDLetter = [
         <br />,
         <i>
@@ -229,6 +231,15 @@ function App(props) {
             quality...tried to get u a light painting and the seller leaves
             etsy...tried to give u a spotify playlist and ur premium ran out 💀
         </i>,
+        <br />,
+    ];
+
+    const gachaLetter = [
+        <br />,
+        "ayyyy, he figured it out :)...the last gift is your actual monthiversary letter haha...i think it's too well hidden this time so i thought id give u a bit of help:",
+        <br />,
+        <br />,
+        "did you know the gacha wheel comes out? open the back of the box where the book was and hold the wheel so it doesnt spin, then turn the dial counterclockwise to unscrew the wheel from the box",
         <br />,
     ];
 
@@ -586,6 +597,23 @@ function App(props) {
             setLockedDND(true);
             return lockedDNDLetter;
         },
+        3: () => {
+            setGacha(true);
+            return <br />;
+        },
+    };
+
+    const gachaCmds = {
+        badminton: () => {
+            return gachaLetter;
+        },
+        BADMINTON: () => {
+            return gachaLetter;
+        },
+        exit: () => {
+            setGacha(false);
+            return <br />;
+        },
     };
 
     const airplaneCmds = {
@@ -899,12 +927,28 @@ function App(props) {
                 theme="dark-blue"
             />
         );
+    else if (gacha)
+        return (
+            <ReactTerminal
+                welcomeMessage={introMsg}
+                errorMessage={[
+                    <br />,
+                    "mmm...sry maybe try unscrambling the letters",
+                    <br />,
+                ]}
+                prompt="[for the last gacha 'gift', pls enter the 9-letter passcode or 'exit' to exit] >>>"
+                showControlBar={false}
+                commands={gachaCmds}
+                themes={theme}
+                theme="dark-blue"
+            />
+        );
     return (
         //unlocked
         <ReactTerminal
             welcomeMessage={introMsg}
             errorMessage={[<br />, "mmm...sry dk what u mean loll", <br />]}
-            prompt="[pls enter a 0 for the playlist, 1 for airplane mode, or 2 for dnd] >>>"
+            prompt="[pls enter a 0 for the playlist, 1 for airplane mode, 2 for dnd, or 3 for gacha] >>>"
             showControlBar={false}
             commands={unlockedCmds}
             themes={theme}
