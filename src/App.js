@@ -19,6 +19,8 @@ function App(props) {
     const [dice, setDice] = useState(Math.floor(Math.random() * 20) + 1);
     const [hug, setHug] = useState(0);
     const [gacha, setGacha] = useState(false);
+    const [scavenger, setScavenger] = useState(false);
+    const [birthiversary, setBirthiversary] = useState(false);
 
     const theme = {
         "dark-blue": {
@@ -234,12 +236,48 @@ function App(props) {
         <br />,
     ];
 
+    const gachaIntroLetter = [
+        <br />,
+        "happy 8 months my boi!",
+        <br />,
+        <br />,
+        <i>
+            yk...if u turn the 8 on its side...ur kinda stuck w me forever hehe
+        </i>,
+        <br />,
+    ];
+
     const gachaLetter = [
         <br />,
         "ayyyy, he figured it out :)...the last gift is your actual monthiversary letter haha...i think it's too well hidden this time so i thought id give u a bit of help:",
         <br />,
         <br />,
         "did you know the gacha wheel comes out? open the back of the box where the book was and hold the wheel so it doesnt spin, then turn the dial counterclockwise to unscrew the wheel from the box",
+        <br />,
+    ];
+
+    const scavengerLetter = [
+        <br />,
+        "happy 9 months my cbwc! hope the scavenger hunt was fun",
+        <br />,
+    ];
+
+    const birthiversaryLetter = [
+        <br />,
+        "happy birthiversary my boi!",
+        <br />,
+        "hope you don't mind me being too lazy to code this time...i went with a google sheet instead haha: https://docs.google.com/spreadsheets/d/1-7d1HhdJ5p_Z8wgzdkqZjQqCGpst3cckh8j97T0M9hQ/edit?usp=sharing",
+        <br />,
+    ];
+
+    const scavengerPrizeLetter = [
+        <br />,
+        "aight aight, i'm out of challenges...but i heard ur space bar is broken, maybe appa has a keyboard for u",
+        <br />,
+        <i>
+            also, to everyone who played...as a thx for playing, i offer the
+            choice of $50 of boba, food, and/or LOAN SHARK credits
+        </i>,
         <br />,
     ];
 
@@ -599,7 +637,15 @@ function App(props) {
         },
         3: () => {
             setGacha(true);
-            return <br />;
+            return gachaIntroLetter;
+        },
+        4: () => {
+            setScavenger(true);
+            return scavengerLetter;
+        },
+        5: () => {
+            setBirthiversary(true);
+            return birthiversaryLetter;
         },
     };
 
@@ -636,6 +682,24 @@ function App(props) {
             setLockedDND(false);
             setPickDND(false);
             setLookDND(false);
+            return <br />;
+        },
+    };
+
+    const scavengerCmds = {
+        4357: () => {
+            setScavenger(false);
+            return scavengerPrizeLetter;
+        },
+        exit: () => {
+            setScavenger(false);
+            return <br />;
+        },
+    };
+
+    const birthiversaryCmds = {
+        exit: () => {
+            setBirthiversary(false);
             return <br />;
         },
     };
@@ -943,12 +1007,40 @@ function App(props) {
                 theme="dark-blue"
             />
         );
+    else if (scavenger)
+        return (
+            <ReactTerminal
+                welcomeMessage={introMsg}
+                errorMessage={[
+                    <br />,
+                    "mmm...order matters, just as it does in my car",
+                    <br />,
+                ]}
+                prompt="[to unlock your prizes, pls enter the 4 digit pin or 'exit' to exit] >>>"
+                showControlBar={false}
+                commands={scavengerCmds}
+                themes={theme}
+                theme="dark-blue"
+            />
+        );
+    else if (birthiversary)
+        return (
+            <ReactTerminal
+                welcomeMessage={introMsg}
+                errorMessage={[<br />, "mmm...sry dk what u mean loll", <br />]}
+                prompt="[pls enter 'exit' to exit] >>>"
+                showControlBar={false}
+                commands={birthiversaryCmds}
+                themes={theme}
+                theme="dark-blue"
+            />
+        );
     return (
         //unlocked
         <ReactTerminal
             welcomeMessage={introMsg}
             errorMessage={[<br />, "mmm...sry dk what u mean loll", <br />]}
-            prompt="[pls enter a 0 for the playlist, 1 for airplane mode, 2 for dnd, or 3 for gacha] >>>"
+            prompt="[pls enter a 0 for the playlist, 1 for airplane mode, 2 for dnd, 3 for gacha, 4 for scavenger, or 5 for birthiversary] >>>"
             showControlBar={false}
             commands={unlockedCmds}
             themes={theme}
