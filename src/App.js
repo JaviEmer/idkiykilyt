@@ -266,7 +266,11 @@ function App(props) {
         <br />,
         "happy birthiversary my boi!",
         <br />,
-        "hope you don't mind me being too lazy to code this time...i went with a google sheet instead haha: https://docs.google.com/spreadsheets/d/1-7d1HhdJ5p_Z8wgzdkqZjQqCGpst3cckh8j97T0M9hQ/edit?usp=sharing",
+        <br />,
+        "hope you don't mind me being too lazy to code this time...i went with a google sheet instead haha: ",
+        <a href="https://docs.google.com/spreadsheets/d/1-7d1HhdJ5p_Z8wgzdkqZjQqCGpst3cckh8j97T0M9hQ/edit?usp=sharing">
+            Birthiversary Event
+        </a>,
         <br />,
     ];
 
